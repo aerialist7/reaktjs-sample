@@ -23,7 +23,7 @@ val App = functionalComponent<RProps> {
     useEffect(emptyList()) {
         GlobalScope.launch {
             val videos = fetchVideos()
-            setUnwatchedVideos(videos.toMutableList())
+            setUnwatchedVideos(videos)
         }
     }
 
