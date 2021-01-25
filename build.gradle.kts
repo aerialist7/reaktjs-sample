@@ -2,9 +2,6 @@ plugins {
     kotlin("js") version "1.4.21"
 }
 
-group = "com.github.aerialist7"
-version = "1.0.0-SNAPSHOT"
-
 repositories {
     jcenter()
     mavenCentral()
@@ -12,28 +9,17 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test-js"))
-    implementation("org.jetbrains:kotlin-react:16.13.1-pre.113-kotlin-1.4.0")
-    implementation("org.jetbrains:kotlin-react-dom:16.13.1-pre.113-kotlin-1.4.0")
+    implementation("org.jetbrains:kotlin-react:17.0.1-pre.136-kotlin-1.4.10")
+    implementation("org.jetbrains:kotlin-react-dom:17.0.1-pre.136-kotlin-1.4.10")
+    implementation("org.jetbrains:kotlin-react-table:7.6.2-pre.136-kotlin-1.4.10")
+    implementation("org.jetbrains:kotlin-styled:5.2.0-pre.136-kotlin-1.4.10")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    implementation(npm("react-player", "~2.8.1"))
+    implementation(npm("react-share", "~4.3.1"))
 }
 
-kotlin {
-    js(LEGACY) {
-        browser {
-            binaries.executable()
-            webpackTask {
-                cssSupport.enabled = true
-            }
-            runTask {
-                cssSupport.enabled = true
-            }
-            testTask {
-                useKarma {
-                    useChromeHeadless()
-                    webpackConfig.cssSupport.enabled = true
-                }
-            }
-        }
+kotlin.js {
+    browser {
+        binaries.executable()
     }
 }
-
